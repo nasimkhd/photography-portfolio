@@ -1,4 +1,4 @@
-export type ProjectCategory = "Commercial" | "Motion" | "Photography" | "Events";
+export type ProjectCategory = "Photography" | "Motion";
 
 export type Project = {
   slug: string;
@@ -8,94 +8,192 @@ export type Project = {
   year: string;
   summary: string;
   image: string;
+  url?: string;
   featured?: boolean;
 };
 
 export const heroImages = [
   {
-    src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2200&q=85",
-    alt: "Camera and production setup in warm natural light",
+    src: "/images/photography/Automotive/Green-Lamborghini-Aventador-Wide-for-web.jpg.webp",
+    alt: "Green Lamborghini photographed by Anthony Saleh",
   },
   {
-    src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=2200&q=85",
-    alt: "Photographer capturing a commercial scene outdoors",
+    src: "/images/photography/Fashion/SKETCHEDUP-105_Web.jpg.webp",
+    alt: "Fashion editorial photograph by Anthony Saleh",
   },
   {
-    src: "https://images.unsplash.com/photo-1520390138845-fd2d229dd553?auto=format&fit=crop&w=2200&q=85",
-    alt: "Editorial photography set with earthy tones",
+    src: "/images/photography/Drone/05001.jpg.webp",
+    alt: "Aerial photography by Anthony Saleh",
   },
 ];
 
 export const projects: Project[] = [
   {
-    slug: "brand-storytelling",
-    title: "Brand Storytelling",
-    category: "Commercial",
-    location: "Toronto, ON",
-    year: "2025",
+    slug: "headshots",
+    title: "Headshots",
+    category: "Photography",
+    location: "Portraits",
+    year: "Photography",
     summary:
-      "Warm, polished campaign visuals for businesses that need their product, people, and atmosphere to feel considered.",
-    image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1500&q=85",
+      "Clean, approachable portraits for founders, teams, artists, and working professionals.",
+    image: "/images/photography/Headshots/Thy_Vo_Headshot_Web.jpg.webp",
     featured: true,
   },
   {
-    slug: "hospitality-motion",
-    title: "Hospitality Motion",
+    slug: "aerial",
+    title: "Aerial",
+    category: "Photography",
+    location: "Aerial",
+    year: "Photography",
+    summary:
+      "Elevated drone perspectives for real estate, development, landscapes, and visual storytelling.",
+    image: "/images/photography/Drone/Molinaro+Web.jpg.webp",
+    featured: true,
+  },
+  {
+    slug: "bmw-z3",
+    title: "BMW Z3",
     category: "Motion",
-    location: "Ontario",
-    year: "2025",
+    location: "Brand Film",
+    year: "Motion",
     summary:
-      "Short-form motion assets built for social, web, and launch campaigns with a grounded cinematic feel.",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1500&q=85",
+      "A polished automotive motion piece with crisp pacing and cinematic atmosphere.",
+    image: "/images/photography/Automotive/Mercedes+Benz+SLS.jpg.webp",
+    url: "https://vimeo.com/1025170349?fl=pl&fe=sh",
+  },
+  {
+    slug: "timelapse-sizzle-reel",
+    title: "Timelapse",
+    category: "Motion",
+    location: "Sizzle Reel",
+    year: "Motion",
+    summary:
+      "A high-energy timelapse reel that leads the motion section and quickly shows range.",
+    image: "/images/photography/Drone/3417A.jpg.webp",
+    url: "https://vimeo.com/267069364?fl=pl&fe=sh",
     featured: true,
   },
   {
-    slug: "event-coverage",
-    title: "Event Coverage",
-    category: "Events",
-    location: "GTA",
-    year: "2024",
+    slug: "canada-life-742296871",
+    title: "Canada Life",
+    category: "Motion",
+    location: "Client Film",
+    year: "Motion",
     summary:
-      "Documentary-style coverage that captures the details, energy, and people behind live experiences.",
-    image:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1500&q=85",
-    featured: true,
+      "Clean commercial motion work shaped for a confident financial services brand.",
+    image: "/images/photography/Interiors%26realstate/55_Lombard_Living_4.jpg.webp",
+    url: "https://vimeo.com/742296871?fl=pl&fe=sh",
+  },
+  {
+    slug: "canada-life-836324743",
+    title: "Canada Life",
+    category: "Motion",
+    location: "Client Film",
+    year: "Motion",
+    summary:
+      "A companion Canada Life film with a polished, campaign-ready finish.",
+    image: "/images/photography/Interiors%26realstate/10BellAir.jpg.webp",
+    url: "https://vimeo.com/836324743?fl=pl&fe=sh",
+  },
+  {
+    slug: "new-horizon-development-group",
+    title: "New Horizon Development Group",
+    category: "Motion",
+    location: "Development",
+    year: "Motion",
+    summary:
+      "A refined development-focused film highlighting place, scale, and built form.",
+    image: "/images/photography/Drone/Molinaro+Web.jpg.webp",
+    url: "https://vimeo.com/545715529?fl=pl&fe=sh",
+  },
+  {
+    slug: "smartspace",
+    title: "SmartSpace",
+    category: "Motion",
+    location: "Client Film",
+    year: "Motion",
+    summary:
+      "A concise brand film presenting space, service, and customer experience.",
+    image: "/images/photography/Interiors%26realstate/Alimento.jpg.webp",
+    url: "https://vimeo.com/374066075?fl=pl&fe=sh",
+  },
+  {
+    slug: "reverence-timelapse-film",
+    title: "Reverence",
+    category: "Motion",
+    location: "Timelapse Film",
+    year: "Motion",
+    summary:
+      "An atmospheric timelapse film with patient movement and dramatic natural light.",
+    image: "/images/photography/OutdoorAssets/2019_Spring_Glam_DHM175.jpg.webp",
+    url: "https://vimeo.com/137951907?fl=pl&fe=sh",
+  },
+  {
+    slug: "sunflare",
+    title: "Sunflare",
+    category: "Motion",
+    location: "Film",
+    year: "Motion",
+    summary:
+      "A bright, atmospheric motion piece hosted on YouTube.",
+    image: "/images/photography/OutdoorAssets/YDS_1.jpg.webp",
+    url: "https://www.youtube.com/watch?v=zmRRMO4iVP8",
+  },
+  {
+    slug: "dubai-timelapse-film",
+    title: "Dubai Timelapse Film",
+    category: "Motion",
+    location: "Dubai",
+    year: "Motion",
+    summary:
+      "A city-scale timelapse film capturing architecture, movement, and evening light.",
+    image: "/images/photography/Drone/DO90.jpg.webp",
+    url: "https://vimeo.com/143907862?fl=pl&fe=sh",
+  },
+  {
+    slug: "nightingale",
+    title: "Nightingale",
+    category: "Motion",
+    location: "Film",
+    year: "Motion",
+    summary:
+      "A focused motion project with a quiet, cinematic feel.",
+    image: "/images/photography/EndangeredAnimals/red+panda+libnan.jpg.webp",
+    url: "https://vimeo.com/171774985?fl=pl&fe=sh",
   },
   {
     slug: "editorial-product",
-    title: "Editorial Product",
+    title: "Products",
     category: "Photography",
     location: "Studio",
-    year: "2024",
+    year: "Photography",
     summary:
       "Textured still-life and lifestyle imagery for brands looking for refined, natural product presentation.",
-    image:
-      "https://images.unsplash.com/photo-1525904097878-94fb15835963?auto=format&fit=crop&w=1500&q=85",
+    image: "/images/photography/Products/Alexander-Keiths-Beer-Glass.jpg.webp",
   },
   {
-    slug: "local-business",
-    title: "Local Business Profiles",
-    category: "Commercial",
-    location: "Toronto, ON",
-    year: "2024",
+    slug: "industrial",
+    title: "Industrial",
+    category: "Photography",
+    location: "Industrial",
+    year: "Photography",
     summary:
-      "Portrait-led visual stories that help businesses show their craft, process, and team with clarity.",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=85",
+      "Industrial imagery with strong environments, machinery, and publication-ready detail.",
+    image: "/images/photography/Industrial/Matter+Magazine+Cover-095-Edit.jpg.webp",
   },
   {
     slug: "outdoor-library",
-    title: "Outdoor Stock Library",
+    title: "Outdoor Assets",
     category: "Photography",
     location: "Canada",
-    year: "2024",
+    year: "Photography",
     summary:
       "Earthy, atmospheric image sets created for licensing, campaigns, and brand storytelling libraries.",
-    image:
-      "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1500&q=85",
+    image: "/images/photography/OutdoorAssets/2019_Spring_Glam_DHM179.jpg.webp",
   },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
+export const motionProjects = projects.filter(
+  (project) => project.category === "Motion",
+);

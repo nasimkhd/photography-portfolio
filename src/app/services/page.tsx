@@ -1,23 +1,23 @@
 const services = [
   {
-    title: "Commercial Photography",
+    title: "Headshots",
     description:
-      "Campaign, lifestyle, product, and business imagery shaped for web, social, and brand systems.",
+      "Professional portraits for individuals, teams, founders, creatives, and working professionals.",
   },
   {
-    title: "Motion Assets",
+    title: "Aerial Photography",
     description:
-      "Short-form brand films, launch clips, social edits, and atmospheric motion for digital campaigns.",
+      "Drone and elevated imagery for real estate, development, landscapes, and location-led storytelling.",
   },
   {
-    title: "Event Coverage",
+    title: "Timelapse Films",
     description:
-      "Clean documentary coverage for conferences, launches, private events, and community experiences.",
+      "Motion work built around time, place, architecture, landscapes, and atmospheric visual sequences.",
   },
   {
-    title: "Stock and Licensing",
+    title: "Product & Industrial",
     description:
-      "Curated image and footage libraries for brands that need natural, location-rich visual assets.",
+      "Image libraries for products, industrial environments, interiors, and brand use.",
   },
 ];
 
@@ -29,12 +29,12 @@ export default function ServicesPage() {
           Services
         </p>
         <h1 className="mt-5 max-w-4xl font-serif text-6xl leading-none text-stone-950 sm:text-7xl">
-          Visual content for brands that need to look established.
+          Headshots, aerial imagery, timelapse, and commercial photography.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-9 text-stone-600">
-          The service structure keeps the site business-focused while still
-          letting the work lead. Each offering can grow into a deeper page once
-          Anthony has final packages, pricing, or process details.
+          The service structure now follows Anthony&apos;s public positioning
+          while still leaving room for his broader photography categories and
+          motion projects.
         </p>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">

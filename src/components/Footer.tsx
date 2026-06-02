@@ -7,8 +7,8 @@ export function Footer() {
         <div>
           <p className="font-serif text-3xl">Anthony Saleh</p>
           <p className="mt-4 max-w-md text-sm leading-7 text-stone-300">
-            Commercial photography and motion for brands, events, and stories
-            that need a grounded visual presence.
+            Headshots, aerial photography, timelapse films, and grounded visual
+            work for people, places, and brands.
           </p>
         </div>
 
@@ -23,6 +23,14 @@ export function Footer() {
             <Link href="/services" className="hover:text-white">
               Services
             </Link>
+            <a
+              href="https://www.youtube.com/channel/UCuwdxJPMxGkbbzCJZEdsp4w"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+            >
+              Stock Footage
+            </a>
             <Link href="/about" className="hover:text-white">
               About
             </Link>

@@ -3,6 +3,11 @@ import Link from "next/link";
 const navItems = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
+  {
+    href: "https://www.youtube.com/channel/UCuwdxJPMxGkbbzCJZEdsp4w",
+    label: "Stock Footage",
+    external: true,
+  },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -21,15 +26,27 @@ export function Navigation() {
         </Link>
 
         <div className="hidden items-center gap-8 text-sm font-medium text-stone-700 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition hover:text-stone-950"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-stone-950"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition hover:text-stone-950"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </div>
 
         <Link

@@ -16,9 +16,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Anthony Saleh | Commercial Photo and Video",
+  title: "Anthony Saleh | Headshots, Aerial, Timelapse",
   description:
-    "Commercial photography and motion for brands, events, and visual storytelling in Ontario.",
+    "Headshots, aerial photography, timelapse films, and commercial visual storytelling in Ontario.",
 };
 
 export default function RootLayout({
