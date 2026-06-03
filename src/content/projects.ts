@@ -29,24 +29,24 @@ export const heroImages = [
 
 export const projects: Project[] = [
   {
-    slug: "headshots",
-    title: "Headshots",
+    slug: "portraits",
+    title: "Portraits",
     category: "Photography",
     location: "Portraits",
     year: "Photography",
     summary:
-      "Clean, approachable portraits for founders, teams, artists, and working professionals.",
+      "Fashion and headshot imagery for founders, teams, artists, and working professionals.",
     image: "/images/photography/Headshots/Thy_Vo_Headshot_Web.jpg.webp",
     featured: true,
   },
   {
-    slug: "aerial",
-    title: "Aerial",
+    slug: "interiors-exteriors",
+    title: "Interiors and Exteriors",
     category: "Photography",
-    location: "Aerial",
+    location: "Spaces",
     year: "Photography",
     summary:
-      "Elevated drone perspectives for real estate, development, landscapes, and visual storytelling.",
+      "Interior, exterior, aerial, and location-led imagery for spaces and places.",
     image: "/images/photography/Drone/Molinaro+Web.jpg.webp",
     featured: true,
   },
@@ -162,13 +162,13 @@ export const projects: Project[] = [
     url: "https://vimeo.com/171774985?fl=pl&fe=sh",
   },
   {
-    slug: "editorial-product",
-    title: "Products",
+    slug: "product",
+    title: "Product",
     category: "Photography",
-    location: "Studio",
+    location: "Commercial",
     year: "Photography",
     summary:
-      "Textured still-life and lifestyle imagery for brands looking for refined, natural product presentation.",
+      "Product, industrial, and automotive imagery for commercial portfolio review.",
     image: "/images/photography/Products/Alexander-Keiths-Beer-Glass.jpg.webp",
   },
   {

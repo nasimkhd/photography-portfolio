@@ -16,9 +16,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Anthony Saleh | Headshots, Aerial, Timelapse",
+  title: "Anthony Saleh | Photography and Films",
   description:
-    "Headshots, aerial photography, timelapse films, and commercial visual storytelling in Ontario.",
+    "A minimal photography and film portfolio featuring portraits, interiors and exteriors, animals, products, and motion work.",
 };
 
 export default function RootLayout({
@@ -31,9 +31,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${cormorant.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-stone-50 text-stone-900">
+      <body className="flex min-h-full flex-col bg-white text-stone-900">
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-12 md:pl-36 md:pt-0">{children}</main>
         <Footer />
       </body>
     </html>

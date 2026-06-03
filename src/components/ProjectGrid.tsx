@@ -68,7 +68,7 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
           <Link
             key={project.slug}
             id={project.slug}
-            href={`/work#${project.slug}`}
+            href={`/photography#${project.slug}`}
             className={className}
           >
             {cardContent}

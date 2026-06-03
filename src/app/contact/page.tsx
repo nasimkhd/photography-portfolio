@@ -1,49 +1,77 @@
 import { ContactForm } from "@/components/ContactForm";
-import { InstagramFeed } from "@/components/InstagramFeed";
+
+const representation = [
+  {
+    region: "Films in Canada",
+    agency: "FreeSociety",
+    email: "tony@freesociety.tv",
+  },
+  {
+    region: "Films & Photography in the US",
+    agency: "TheGarageTV",
+    email: "hallie@the-garage.tv",
+  },
+  {
+    region: "Films & Photography in Mexico",
+    agency: "FFFFrameTV",
+    email: "alvaro.guizar@ffframe.tv",
+  },
+];
 
 export default function ContactPage() {
   return (
-    <div className="bg-background px-5 pb-24 pt-36 sm:px-8">
-      <section className="mx-auto max-w-7xl">
-        <p className="text-xs font-bold uppercase tracking-[0.28em] text-clay">
-          Contact
-        </p>
-        <div className="mt-5 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <h1 className="font-serif text-6xl leading-none text-stone-950 sm:text-7xl">
-            Let&apos;s collaborate.
-          </h1>
-          <p className="max-w-2xl text-lg leading-9 text-stone-600">
-            Tell Anthony about your project below and he&apos;ll respond shortly.
-            Share the project type, timeline, location, and what you want the
-            finished visuals to do.
-          </p>
-        </div>
-      </section>
+    <section className="min-h-screen bg-white px-5 py-16 text-[13px] text-neutral-500 sm:px-8 md:px-0 md:py-20">
+      <div className="mx-auto grid w-full max-w-[760px] gap-8 md:grid-cols-[1fr_1.08fr] md:gap-9">
+        <div className="relative overflow-hidden rounded-br-[28px] rounded-tl-[28px] border border-neutral-200/80 bg-gradient-to-br from-white via-stone-50 to-neutral-100 px-6 py-7 text-right shadow-[0_24px_70px_rgba(0,0,0,0.07)]">
+          <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-[#d7a61f]/10 blur-2xl" />
+          <div className="relative">
+            <p className="font-serif text-xl text-neutral-700">Anthony Saleh</p>
+            <div className="mt-5 leading-relaxed">
+              <p>Toronto, Canada</p>
+              <a
+                href="mailto:hello@anthonysaleh.ca"
+                className="underline decoration-neutral-300 underline-offset-4 transition hover:text-neutral-900"
+              >
+                hello@anthonysaleh.ca
+              </a>
+            </div>
 
-      <section className="mx-auto mt-14 grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="flex h-full flex-col rounded-[2.5rem] border border-stone-900/10 bg-white/75 p-5 shadow-sm sm:p-6">
-          <div className="mb-5">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-clay">
-              Instagram
+            <p className="mt-9 text-neutral-400">Representations</p>
+            <div className="mt-5 space-y-6 leading-relaxed">
+              {representation.map((item) => (
+                <div key={item.email}>
+                  <p>{item.region} by</p>
+                  <p>
+                    <span className="text-neutral-600">{item.agency}</span>
+                    <br />
+                    <a
+                      href={`mailto:${item.email}`}
+                      className="underline decoration-neutral-300 underline-offset-4 transition hover:text-neutral-900"
+                    >
+                      {item.email}
+                    </a>
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-9 text-neutral-500">
+              Photography in Canada, Self-representation
             </p>
-            <h2 className="mt-3 font-serif text-4xl leading-none text-stone-950">
-              Recent public posts.
-            </h2>
           </div>
-          <InstagramFeed />
         </div>
 
-        <div className="rounded-[2.5rem] border border-stone-900/10 bg-white p-8 shadow-sm sm:p-10">
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-stone-500">
-            Tell Me About Your Project
+        <div className="rounded-tl-[28px] rounded-br-[28px] border border-neutral-200 bg-white p-6 shadow-[0_24px_70px_rgba(0,0,0,0.06)]">
+          <p className="font-serif text-[28px] leading-none text-neutral-700">
+            getting in touch
           </p>
-          <p className="mt-5 leading-8 text-stone-600">
-            This opens your email app with the inquiry filled in so you can send
-            the message directly.
+          <p className="mt-3 max-w-[22rem] leading-relaxed text-neutral-400">
+            Send a note about the project, location, timing, and the kind of
+            images or film you want to make.
           </p>
           <ContactForm />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
