@@ -1,23 +1,28 @@
 const services = [
   {
-    title: "Headshots",
+    title: "Portraits",
     description:
-      "Professional portraits for individuals, teams, founders, creatives, and working professionals.",
+      "Fashion, headshots, and character-led portraits for individuals, teams, artists, and brands.",
   },
   {
-    title: "Aerial Photography",
+    title: "Interiors and Exteriors",
     description:
-      "Drone and elevated imagery for real estate, development, landscapes, and location-led storytelling.",
+      "Interior, architecture, real estate, drone, and exterior imagery for built environments and locations.",
   },
   {
-    title: "Timelapse Films",
+    title: "Animals",
     description:
-      "Motion work built around time, place, architecture, landscapes, and atmospheric visual sequences.",
+      "Expressive animal portraits and wildlife imagery with warmth, texture, and presence.",
   },
   {
-    title: "Product & Industrial",
+    title: "Product",
     description:
-      "Image libraries for products, industrial environments, interiors, and brand use.",
+      "Product, industrial, and automotive images for commercial portfolios, campaigns, and brand use.",
+  },
+  {
+    title: "Films",
+    description:
+      "Standalone video work, including timelapse, brand films, and motion projects.",
   },
 ];
 
@@ -29,12 +34,11 @@ export default function ServicesPage() {
           Services
         </p>
         <h1 className="mt-5 max-w-4xl font-serif text-6xl leading-none text-stone-950 sm:text-7xl">
-          Headshots, aerial imagery, timelapse, and commercial photography.
+          Photography & films arranged around the new portfolio structure.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-9 text-stone-600">
-          The service structure now follows Anthony&apos;s public positioning
-          while still leaving room for his broader photography categories and
-          motion projects.
+          Portraits, interiors and exteriors, animals, product work, and films
+          are separated so visitors can move through the portfolio quickly.
         </p>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">

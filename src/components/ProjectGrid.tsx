@@ -4,9 +4,15 @@ import type { Project } from "@/content/projects";
 
 type ProjectGridProps = {
   projects: Project[];
+  tone?: "light" | "dark";
 };
 
-export function ProjectGrid({ projects }: ProjectGridProps) {
+export function ProjectGrid({ projects, tone = "light" }: ProjectGridProps) {
+  const isDark = tone === "dark";
+  const cardClassName = isDark
+    ? "group overflow-hidden border border-white/10 bg-white/[0.03] transition hover:-translate-y-1 hover:border-white/35"
+    : "group overflow-hidden rounded-[2rem] border border-stone-900/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl";
+
   return (
     <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => {
@@ -27,27 +33,40 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
             </div>
 
             <div className="p-6">
-              <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
+              <div
+                className={`flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.18em] ${
+                  isDark ? "text-white/35" : "text-stone-500"
+                }`}
+              >
                 <span>{project.location}</span>
                 <span>{project.year}</span>
               </div>
-              <h3 className="mt-4 font-serif text-2xl text-stone-950">
+              <h3
+                className={`mt-4 font-serif text-2xl ${
+                  isDark ? "text-white" : "text-stone-950"
+                }`}
+              >
                 {project.title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-stone-600">
+              <p
+                className={`mt-3 text-sm leading-7 ${
+                  isDark ? "text-white/55" : "text-stone-600"
+                }`}
+              >
                 {project.summary}
               </p>
               {project.url ? (
-                <p className="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-clay">
+                <p
+                  className={`mt-5 text-xs font-bold uppercase tracking-[0.2em] ${
+                    isDark ? "text-white/70" : "text-clay"
+                  }`}
+                >
                   Watch film
                 </p>
               ) : null}
             </div>
           </>
         );
-
-        const className =
-          "group overflow-hidden rounded-[2rem] border border-stone-900/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl";
 
         if (project.url) {
           return (
@@ -57,7 +76,7 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className={className}
+              className={cardClassName}
             >
               {cardContent}
             </a>
@@ -68,8 +87,8 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
           <Link
             key={project.slug}
             id={project.slug}
-            href={`/photography#${project.slug}`}
-            className={className}
+            href={`/photography/${project.slug}`}
+            className={cardClassName}
           >
             {cardContent}
           </Link>

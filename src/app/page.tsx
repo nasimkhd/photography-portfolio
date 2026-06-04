@@ -1,11 +1,51 @@
+import Link from "next/link";
 import { VimeoBackground } from "@/components/VimeoBackground";
+import { photographyCategories } from "@/content/photography";
 
 export default function Home() {
   return (
-    <section className="min-h-screen bg-white px-4 py-10 sm:px-8 md:px-0 md:py-[42px]">
-      <div className="relative mx-auto aspect-video w-full max-w-[1120px] overflow-hidden rounded-br-[18px] bg-stone-200 md:mx-0">
+    <>
+      <section className="relative min-h-screen overflow-hidden bg-black text-white">
         <VimeoBackground />
-      </div>
-    </section>
+        <div className="relative z-10 flex min-h-screen flex-col justify-end px-5 pb-10 pt-32 sm:px-8 md:pb-14">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+            <div>
+              <p className="text-[0.65rem] uppercase tracking-[0.44em] text-white/50">
+                Anthony Saleh
+              </p>
+              <h1 className="mt-5 font-serif text-[clamp(2.9rem,10vw,6.8rem)] leading-[0.86] tracking-[-0.065em] text-white drop-shadow-[0_18px_44px_rgba(0,0,0,0.72)]">
+                <span className="block whitespace-nowrap">Photographer</span>
+                <span className="mt-5 block whitespace-nowrap pl-[0.18em] italic tracking-[-0.08em] text-white/90 sm:mt-7">
+                  &amp; filmmaker
+                </span>
+              </h1>
+            </div>
+            <div className="max-w-xl md:justify-self-end">
+              <p className="text-sm leading-7 text-white/65">
+                A pared-back portfolio for portraits, interiors and exteriors,
+                animals, product photography, and film work.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3">
+                {photographyCategories.map((category) => (
+                  <Link
+                    key={category.slug}
+                    href={`/photography/${category.slug}`}
+                    className="text-[0.68rem] uppercase tracking-[0.32em] text-white/65 transition hover:text-white"
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+                <Link
+                  href="/films"
+                  className="text-[0.68rem] uppercase tracking-[0.32em] text-white/65 transition hover:text-white"
+                >
+                  Films
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

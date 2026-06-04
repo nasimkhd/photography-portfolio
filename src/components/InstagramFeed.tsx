@@ -52,7 +52,7 @@ export function InstagramFeed() {
 
   return (
     <aside aria-label="Instagram posts" className="flex flex-1">
-      <div className="grid flex-1 overflow-hidden rounded-[2rem] bg-stone-50">
+      <div className="grid flex-1 overflow-hidden bg-white">
         {instagramPostUrls.map((url, index) => {
           const isActive = index === activeIndex;
 

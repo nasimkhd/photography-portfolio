@@ -1,112 +1,71 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { photographyCategories } from "@/content/photography";
 
-export function Navigation() {
-  const pathname = usePathname();
-  const isFilmsPage = pathname === "/films";
-  const isPhotographyPage = pathname.startsWith("/photography");
-  const sectionLink =
-    "flex items-center gap-1.5 transition duration-200 hover:translate-x-0.5 hover:text-black";
-  const childLink =
-    "transition duration-200 hover:translate-x-0.5 hover:text-black";
-  const activeLink = "text-[#d7a61f]";
+const navItems = [
+  { href: "/films", label: "Films" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
+export function Navigation() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white text-[13px] leading-[1.15] text-neutral-700 md:inset-y-0 md:right-auto md:w-36">
-      <nav className="flex items-center justify-between gap-4 px-4 py-3 md:h-full md:flex-col md:items-start md:justify-center md:px-2 md:py-0">
-        <Link href="/" className="transition hover:text-black md:hidden">
-          Home
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/35 text-white backdrop-blur-md">
+      <nav className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-4 sm:px-8">
+        <Link href="/" className="group flex flex-col leading-[0.82]">
+          <span className="text-2xl font-black uppercase tracking-[-0.08em] text-white sm:text-3xl">
+            ANTHONY
+          </span>
+          <span className="text-2xl font-black uppercase tracking-[-0.08em] text-white sm:text-3xl">
+            SALEH
+          </span>
         </Link>
 
-        <div className="hidden w-full flex-col items-start md:flex">
-          <Link
-            href="/films"
-            className={`${sectionLink} ${isFilmsPage ? activeLink : ""}`}
-          >
-            {isFilmsPage ? <span aria-hidden="true">›</span> : null}
-            <span>Films</span>
-          </Link>
-          <Link
-            href={`/photography/${photographyCategories[0].slug}`}
-            className={`mt-1.5 ${sectionLink} ${
-              isPhotographyPage ? activeLink : ""
-            }`}
-          >
-            {isPhotographyPage ? <span aria-hidden="true">›</span> : null}
-            <span>Photography</span>
-          </Link>
-          {isPhotographyPage ? (
-            <div className="ml-1.5 mt-1.5 flex flex-col gap-0.5 border-l border-neutral-200 pl-3 text-[12px] text-neutral-500">
-              {photographyCategories.map((category) => (
-                <Link
-                  key={category.slug}
-                  href={`/photography/${category.slug}`}
-                  className={`${childLink} ${
-                    pathname === `/photography/${category.slug}`
-                      ? activeLink
-                      : ""
-                  }`}
-                >
-                  {category.title}
-                </Link>
-              ))}
+        <div className="hidden items-center gap-8 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/65 md:flex">
+          <div className="group relative py-3">
+            <Link href="/photography" className="transition hover:text-white">
+              Photography
+            </Link>
+            <div className="invisible absolute left-1/2 top-full min-w-72 -translate-x-1/2 pt-4 opacity-0 transition group-hover:visible group-hover:opacity-100">
+              <div className="grid gap-3 border border-white/10 bg-black/90 p-5 shadow-2xl backdrop-blur-md">
+                {photographyCategories.map((category) => (
+                  <Link
+                    key={category.slug}
+                    href={`/photography/${category.slug}`}
+                    className="whitespace-nowrap text-white/55 transition hover:text-white"
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+              </div>
             </div>
-          ) : null}
-          <Link
-            href="/about"
-            className={`mt-6 ${sectionLink} ${
-              pathname === "/about" ? activeLink : ""
-            }`}
-          >
-            Bio
+          </div>
+
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="transition hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-white/70 md:hidden">
+          <Link href="/photography" className="transition hover:text-white">
+            Photo
           </Link>
-          <Link
-            href="/contact"
-            className={`mt-1 ${sectionLink} ${
-              pathname === "/contact" ? activeLink : ""
-            }`}
-          >
-            Contact
+          <Link href="/films" className="transition hover:text-white">
+            Films
           </Link>
         </div>
 
-        <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 md:hidden">
-          <Link
-            href="/films"
-            className={`transition hover:text-black ${
-              pathname === "/films" ? "text-[#d7a61f]" : ""
-            }`}
-          >
-            Films
-          </Link>
-          <Link
-            href={`/photography/${photographyCategories[0].slug}`}
-            className={`transition hover:text-black ${
-              isPhotographyPage ? "text-[#d7a61f]" : ""
-            }`}
-          >
-            Photography
-          </Link>
-          <Link
-            href="/about"
-            className={`transition hover:text-black ${
-              pathname === "/about" ? "text-[#d7a61f]" : ""
-            }`}
-          >
-            Bio
-          </Link>
-          <Link
-            href="/contact"
-            className={`transition hover:text-black ${
-              pathname === "/contact" ? "text-[#d7a61f]" : ""
-            }`}
-          >
-            Contact
-          </Link>
-        </div>
+        <Link
+          href="/contact"
+          className="border border-white/25 px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/80 transition hover:border-white hover:bg-white hover:text-black"
+        >
+          Inquire
+        </Link>
       </nav>
     </header>
   );
