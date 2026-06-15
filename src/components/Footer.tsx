@@ -5,16 +5,6 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-black text-white">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1.3fr_0.7fr_0.7fr]">
         <div>
-          <p className="font-serif text-4xl tracking-[-0.04em]">
-            Anthony Saleh
-          </p>
-          <p className="mt-4 max-w-md text-sm leading-7 text-white/50">
-            Photography & films across portraits, interiors and exteriors,
-            animals, and commercial product work.
-          </p>
-        </div>
-
-        <div>
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.28em] text-white/35">
             Explore
           </p>
@@ -45,7 +35,7 @@ export function Footer() {
             <a href="mailto:hello@anthonysaleh.ca" className="hover:text-white">
               hello@anthonysaleh.ca
             </a>
-            <span>Toronto and Ontario</span>
+            <span>Toronto, Ontario and worldwide</span>
           </div>
         </div>
       </div>

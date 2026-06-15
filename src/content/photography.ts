@@ -1,6 +1,7 @@
 export type PhotographyImage = {
   src: string;
   alt: string;
+  orientation?: "portrait" | "landscape";
 };
 
 export type PhotographyCategory = {
@@ -13,11 +14,20 @@ export type PhotographyCategory = {
 const imagePath = (folder: string, file: string) =>
   `/images/photography/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
 
-const toImages = (folder: string, files: string[], label: string) =>
-  files.map((file, index) => ({
+const toImages = (
+  folder: string,
+  files: string[],
+  label: string,
+  landscapeFiles: string[] = [],
+): PhotographyImage[] => {
+  const landscapeFileSet = new Set(landscapeFiles);
+
+  return files.map((file, index) => ({
     src: imagePath(folder, file),
     alt: `${label} photography ${index + 1}`,
+    orientation: landscapeFileSet.has(file) ? "landscape" : "portrait",
   }));
+};
 
 const headshotImages = toImages(
   "Headshots",
@@ -40,6 +50,17 @@ const headshotImages = toImages(
     "image-asset.jpeg.webp",
   ],
   "Portrait",
+  [
+    "Andrew.jpeg.webp",
+    "H-18-Edit.jpeg.webp",
+    "Kyle+Arbuthnott+Headshot-034-Edit.jpg.webp",
+    "Lisa+Headshot_Crop.jpg.webp",
+    "Steve.jpeg.webp",
+    "Thy_Vo_Headshot_Web.jpg.webp",
+    "_AES2928-Edit.jpg.webp",
+    "_AES4231.jpg.webp",
+    "_DSC0391.jpeg.webp",
+  ],
 );
 
 const fashionImages = toImages(
@@ -179,28 +200,28 @@ export const photographyCategories: PhotographyCategory[] = [
     slug: "portraits",
     title: "Portraits",
     description:
-      "Fashion, headshots, and character-led portrait work gathered into one focused section.",
+      "",
     images: [...headshotImages, ...fashionImages],
   },
   {
     slug: "animals",
     title: "Animals",
     description:
-      "Animal portraits and wildlife imagery with warmth, texture, and expressive presence.",
+      "",
     images: [...animalImages, ...endangeredAnimalImages],
   },
   {
     slug: "interiors-exteriors",
     title: "Interiors and Exteriors",
     description:
-      "Architecture, real estate, aerial, and exterior image sets with clean geometry and atmosphere.",
+      "",
     images: [...interiorsImages, ...exteriorImages, ...outdoorImages],
   },
   {
     slug: "product",
     title: "Product",
     description:
-      "Product, industrial, and automotive photography combined for commercial review.",
+      "",
     images: [...productImages, ...industrialImages, ...automotiveImages],
   },
 ];

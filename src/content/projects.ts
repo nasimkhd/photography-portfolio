@@ -1,4 +1,4 @@
-export type ProjectCategory = "Photography" | "Motion";
+export type ProjectCategory = "Motion";
 
 export type Project = {
   slug: string;
@@ -28,50 +28,6 @@ export const heroImages = [
 ];
 
 export const projects: Project[] = [
-  {
-    slug: "portraits",
-    title: "Portraits",
-    category: "Photography",
-    location: "Fashion and Headshots",
-    year: "Photography",
-    summary:
-      "Fashion, headshots, and character-led portrait work gathered into one focused section.",
-    image: "/images/photography/Headshots/Thy_Vo_Headshot_Web.jpg.webp",
-    featured: true,
-  },
-  {
-    slug: "interiors-exteriors",
-    title: "Interiors and Exteriors",
-    category: "Photography",
-    location: "Architecture",
-    year: "Photography",
-    summary:
-      "Architecture, real estate, aerial, and exterior image sets with clean geometry and atmosphere.",
-    image: "/images/photography/Drone/Molinaro+Web.jpg.webp",
-    featured: true,
-  },
-  {
-    slug: "animals",
-    title: "Animals",
-    category: "Photography",
-    location: "Animal Portraits",
-    year: "Photography",
-    summary:
-      "Animal portraits and wildlife imagery with warmth, texture, and expressive presence.",
-    image: "/images/photography/Animals/ExportSPCA_AES0961.jpg.webp",
-    featured: true,
-  },
-  {
-    slug: "product",
-    title: "Product",
-    category: "Photography",
-    location: "Commercial",
-    year: "Photography",
-    summary:
-      "Product, industrial, and automotive photography combined for commercial review.",
-    image: "/images/photography/Products/Alexander-Keiths-Beer-Glass.jpg.webp",
-    featured: true,
-  },
   {
     slug: "bmw-z3",
     title: "BMW Z3",
@@ -185,7 +141,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.filter((project) => project.featured);
 export const motionProjects = projects.filter(
   (project) => project.category === "Motion",
 );

@@ -1,28 +1,33 @@
-import { ProjectGrid } from "@/components/ProjectGrid";
+import Image from "next/image";
 import { motionProjects } from "@/content/projects";
 
 export default function FilmsPage() {
   return (
-    <div className="bg-stone-50 px-5 pb-24 pt-32 text-neutral-950 sm:px-8">
+    <div className="min-h-screen bg-stone-50 px-5 pb-24 pt-32 text-neutral-950 sm:px-8">
       <section className="mx-auto max-w-[1440px]">
-        <div className="grid gap-10 border-b border-neutral-950/10 pb-12 md:grid-cols-[0.72fr_1.28fr] md:items-end">
-          <div>
-            <p className="text-[0.65rem] uppercase tracking-[0.42em] text-neutral-500">
-              Films
-            </p>
-            <h1 className="mt-5 font-serif text-6xl leading-[0.9] tracking-[-0.05em] text-neutral-950 sm:text-8xl">
-              Film work.
-            </h1>
-          </div>
-          <p className="max-w-2xl text-sm leading-7 text-neutral-600">
-            A dedicated page for the videos Anthony shared, keeping the films
-            separate from the photography menu just like the requested site
-            structure.
-          </p>
-        </div>
-
-        <div className="pt-16">
-          <ProjectGrid projects={motionProjects} />
+        <div className="grid gap-x-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+          {motionProjects.map((project) => (
+            <a
+              key={project.slug}
+              id={project.slug}
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Watch ${project.title}`}
+              className="group relative block aspect-video overflow-hidden bg-neutral-100"
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                className="object-cover transition duration-300 group-hover:scale-[1.02]"
+              />
+              <span className="absolute left-1/2 top-1/2 flex size-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-neutral-900/35 text-white shadow-sm transition group-hover:bg-neutral-900/55">
+                <span className="ml-0.5 h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-white" />
+              </span>
+            </a>
+          ))}
         </div>
       </section>
     </div>

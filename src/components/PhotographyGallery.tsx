@@ -49,22 +49,34 @@ export function PhotographyGallery({
             </p>
           </div>
 
-          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
-            {category.images.map((image) => (
-              <figure
-                key={image.src}
-                className="group mb-4 break-inside-avoid overflow-hidden"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={1800}
-                  height={1200}
-                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="h-auto w-full transition duration-700 group-hover:scale-[1.02]"
-                />
-              </figure>
-            ))}
+          <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-6">
+            {category.images.map((image) => {
+              const isLandscape = image.orientation === "landscape";
+
+              return (
+                <figure
+                  key={image.src}
+                  className={`group overflow-hidden ${
+                    isLandscape
+                      ? "sm:col-span-2 lg:col-span-3"
+                      : "lg:col-span-2"
+                  }`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={1800}
+                    height={1200}
+                    sizes={
+                      isLandscape
+                        ? "(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw"
+                        : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    }
+                    className="h-auto w-full transition duration-700 group-hover:scale-[1.02]"
+                  />
+                </figure>
+              );
+            })}
           </div>
         </section>
       ))}
