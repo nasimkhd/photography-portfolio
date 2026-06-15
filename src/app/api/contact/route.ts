@@ -3,8 +3,8 @@ import { Resend } from "resend";
 export const runtime = "nodejs";
 
 const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "hello@anthonysaleh.ca";
-const contactFromEmail =
-  process.env.RESEND_FROM_EMAIL ?? "Website Contact <onboarding@resend.dev>";
+const contactFromEmail = process.env.RESEND_FROM_EMAIL?.trim();
+const fallbackContactFromEmail = "Website Contact <onboarding@resend.dev>";
 
 type ContactPayload = {
   name?: unknown;
@@ -30,10 +30,45 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#39;");
 }
 
+function isProduction() {
+  return (
+    process.env.VERCEL_ENV === "production" ||
+    process.env.NODE_ENV === "production"
+  );
+}
+
+function formatResendError(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  try {
+    return JSON.stringify(error);
+  } catch {
+    return String(error);
+  }
+}
+
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
+    return Response.json(
+      { message: "The contact form is not configured yet." },
+      { status: 500 },
+    );
+  }
+
+  if (!contactFromEmail && isProduction()) {
+    return Response.json(
+      { message: "The contact form is not configured yet." },
+      { status: 500 },
+    );
+  }
+
+  const fromEmail = contactFromEmail ?? fallbackContactFromEmail;
+
+  if (isProduction() && fromEmail.includes("@resend.dev")) {
     return Response.json(
       { message: "The contact form is not configured yet." },
       { status: 500 },
@@ -84,7 +119,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    from: contactFromEmail,
+    from: fromEmail,
     to: contactToEmail,
     replyTo: email,
     subject,
@@ -93,7 +128,7 @@ export async function POST(request: Request) {
   });
 
   if (error) {
-    console.error("Resend contact form error:", error);
+    console.error("Resend contact form error:", formatResendError(error));
 
     return Response.json(
       { message: "The message could not be sent. Please try again later." },
