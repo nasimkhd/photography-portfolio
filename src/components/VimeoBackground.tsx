@@ -12,7 +12,7 @@ type VimeoBackgroundProps = {
 export function VimeoBackground({
   videoId = "267069364",
   title = "Anthony Saleh timelapse reel",
-  startSeconds = 8,
+  startSeconds = 13,
   loopSeconds = 70,
 }: VimeoBackgroundProps) {
   const [loopKey, setLoopKey] = useState(0);
