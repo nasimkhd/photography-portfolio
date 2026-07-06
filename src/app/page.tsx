@@ -1,12 +1,10 @@
-import Link from "next/link";
-import { VimeoBackground } from "@/components/VimeoBackground";
-import { photographyCategories } from "@/content/photography";
+import { VideoBackground } from "@/components/VideoBackground";
 
 export default function Home() {
   return (
     <>
       <section className="relative min-h-screen overflow-hidden bg-black text-white">
-        <VimeoBackground />
+        <VideoBackground src="/video/hero.mp4" />
         <div className="relative z-10 flex min-h-screen flex-col justify-end px-5 pb-10 pt-32 sm:px-8 md:pb-14">
           <div className="mx-auto grid w-full max-w-[1440px] gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-end">
             <div>
