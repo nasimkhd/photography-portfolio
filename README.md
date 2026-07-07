@@ -1,9 +1,8 @@
 # Anthony Saleh Website
 
-A modern commercial photo and video portfolio for Anthony Saleh. The first
-version is built as a static, portfolio-focused website with an earthy editorial
-direction, large hero image slideshow, curated work grid, service pages, and a
-direct contact CTA.
+A modern commercial photo and video portfolio for Anthony Saleh. The site uses a
+self-hosted hero video, curated photography galleries, a films page, and a
+contact form powered by Resend.
 
 ## Getting Started
 
@@ -17,9 +16,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Content
 
-Project and hero content lives in `src/content/projects.ts`. Current imagery is
-temporary remote placeholder content and should be replaced with Anthony's final
-photos and motion stills.
+Project and film content lives in `src/content/projects.ts`. Photography
+categories and images live in `src/content/photography.ts`. The homepage hero
+video lives in `public/video/hero.mp4`.
 
 ## Stack
 

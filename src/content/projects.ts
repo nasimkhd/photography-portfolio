@@ -12,21 +12,6 @@ export type Project = {
   featured?: boolean;
 };
 
-export const heroImages = [
-  {
-    src: "/images/photography/Automotive/Green-Lamborghini-Aventador-Wide-for-web.jpg.webp",
-    alt: "Green Lamborghini photographed by Anthony Saleh",
-  },
-  {
-    src: "/images/photography/Fashion/SKETCHEDUP-105_Web.jpg.webp",
-    alt: "Fashion editorial photograph by Anthony Saleh",
-  },
-  {
-    src: "/images/photography/Drone/05001.jpg.webp",
-    alt: "Aerial photography by Anthony Saleh",
-  },
-];
-
 export const projects: Project[] = [
   {
     slug: "bmw-z3",
